@@ -32,7 +32,6 @@
 #include <linux/miscdevice.h>
 #include <linux/slab.h>
 #include <linux/uaccess.h>
-#include <asm/mach-types.h>
 #include <asm/setup.h>
 #include <linux/wakelock.h>
 #include <linux/jiffies.h>
@@ -3008,7 +3007,7 @@ static int epl_sensor_als_open(struct inode *inode, struct file *file)
 /*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*/
-static int epl_sensor_als_read(struct file *file, char __user *buffer, size_t count, loff_t *ppos)
+static ssize_t epl_sensor_als_read(struct file *file, char __user *buffer, size_t count, loff_t *ppos)
 {
 	struct epl_sensor_priv *epld = epl_sensor_obj;
 	int buf[1];
